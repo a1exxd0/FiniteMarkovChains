@@ -6,7 +6,8 @@ using std::cout;
 using std::endl;
 
 int main(){
-    for (auto d : calculateinput1::eigenvalues_3){
-        cout << "Eigenvalue: " << d << endl;
-    }
+    cout << "a: " << calculateinput1::a_3 << endl;
+    cout << "b: " << calculateinput1::b_3 << endl;
+    cout << "c: " << calculateinput1::c_3 << endl;
+    cout << "d: " << calculateinput1::d_3 << endl;
 }
