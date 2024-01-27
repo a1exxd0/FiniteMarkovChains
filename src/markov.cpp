@@ -4,7 +4,6 @@
 
 #include "inputs.h"
 #include "markov.h"
-#include "solvers.h"
 
 
 #define TM input1::transitionMatrix
@@ -24,10 +23,6 @@ double calculateinput1::d_3 = (TM[0][0] * (TM[1][1] * TM[2][2] - TM[2][1] * TM[1
 bool isCloseToZero(double value, double tolerance = 1e-10) {
     return std::fabs(value) < tolerance;
 }
-
-
-
-std::vector<double> calculateinput1::eigenvalues_3 = calculateinput1::solveCubic(1,-2,0,20);
 
 
 //calculateinput1::solveCubic

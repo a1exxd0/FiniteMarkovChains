@@ -9,7 +9,6 @@ class calculateinput1{
         static double b_3;
         static double c_3;
         static double d_3;
-        static std::vector<double> solveCubic(double a, double b, double c, double d);
         static std::vector<double> eigenvalues_3;
 };
 

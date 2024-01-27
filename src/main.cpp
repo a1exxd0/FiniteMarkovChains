@@ -24,4 +24,7 @@ int main(){
     }
     
     alglib::polynomialsolve(arr, 3, solved, stuff1);
+    for(int i = 0; i < solved.length(); i++){
+        cout << solved[i].x << endl;
+    }
 }

@@ -8,25 +8,20 @@ CFLAGS = -std=c++11 -Wall
 
 # Directories
 SRC_DIR = src
+OTHER_SRC_DIR = alglib-4.01.0.cpp.gpl/alglib-cpp/src
 INCLUDE_DIR = include
+INCLUDE_DIR2 = alglib-4.01.0.cpp.gpl/alglib-cpp/src
 BUILD_DIR = build
 
 # Source files
-SRC = $(wildcard $(SRC_DIR)/*.cpp)
-
-# Object files
-OBJ = $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRC))
+SRC = $(wildcard $(SRC_DIR)/*.cpp) $(wildcard $(OTHER_SRC_DIR)/*.cpp)
 
 # Executable name
 EXEC = FiniteMarkovChains
 
 # Rule to build the executable
-$(EXEC): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(EXEC)
-
-# Rule to build object files from source files
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
-	$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -c $< -o $@
+$(EXEC): $(SRC)
+	$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -I$(INCLUDE_DIR2) $^ -o $@
 
 # Create build directory if it doesn't exist
 $(BUILD_DIR):
