@@ -2,6 +2,7 @@
 #define MARKOV_H
 
 #include<vector>
+using std::vector;
 
 class calculateinput1{
     public:
@@ -9,9 +10,8 @@ class calculateinput1{
         static double b_3;
         static double c_3;
         static double d_3;
-        static std::vector<double> eigenvalues_3;
 };
 
-
+vector<double> coefficientCalculator3x3(char, char, double[]);
 
 #endif

@@ -12,7 +12,4 @@ double input1::transitionMatrix[STATESPACESIZE][STATESPACESIZE] =
 char input1::stateSpace[STATESPACESIZE] =
     {'A', 'B', 'C'};
 
-int input1::n =
-    5;
-
 
