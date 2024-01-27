@@ -4,6 +4,7 @@
 
 #include "inputs.h"
 #include "markov.h"
+#include "solvers.h"
 
 
 #define TM input1::transitionMatrix
@@ -24,27 +25,7 @@ bool isCloseToZero(double value, double tolerance = 1e-10) {
     return std::fabs(value) < tolerance;
 }
 
-std::vector<double> calculateinput1::solveCubic(double a, double b, double c, double d) {
-    // Discriminant
-    double delta0 = b * b - 3 * a * c;
-    double delta1 = 2 * b * b * b - 9 * a * b * c + 27 * a * a * d;
-    double C = std::cbrt((delta1 + std::sqrt(delta1 * delta1 - 4 * delta0 * delta0 * delta0)) / 2);
 
-    // Check for complex roots
-    if (isCloseToZero(delta1) && delta1 < 0) {
-        throw std::runtime_error("Complex roots detected.");
-    }
-
-    // Calculate real roots
-    std::vector<double> roots;
-    for (int k = 0; k < 3; ++k) {
-        double theta = (2.0 * M_PI * k) / 3.0;
-        double root = -b / (3.0 * a) - C * std::cos(theta) - (delta0 / (C * std::cos(theta)));
-        roots.push_back(root);
-    }
-
-    return roots;
-}
 
 std::vector<double> calculateinput1::eigenvalues_3 = calculateinput1::solveCubic(1,-2,0,20);
 
